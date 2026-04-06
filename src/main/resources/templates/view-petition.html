@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <title>View Petition</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a th:href="@{/}" class="logo">Fintan's Petitions</a>
+            <div class="navbar-links">
+                <a th:href="@{/}">Browse</a>
+                <a th:href="@{/search}">Search</a>
+                <a th:href="@{/create}">Create a Petition</a>
+            </div>
+        </div>
+    </nav>
+    <main class="main-container">
+        <div class="petition-grid">
+            <h1 th:text="${petition.title}">Petition Title</h1>
+            <div class="card-view">
+                <span class="category-tag" th:text="${petition.category}">Category</span>
+
+                <p class="text-muted">Started by: <strong th:text="${petition.author}">Author</strong></p>
+
+                <hr>
+
+                <div class="description-box">
+                    <p th:text="${petition.description}">Full description goes here...</p>
+                </div>
+
+                <div class="signature-section">
+                    <h3>Current Signatures: <span th:text="${petition.getSignatureCount()}">0</span></h3>
+
+                    <button>
+                        Sign this Petition
+                    </button>
+                </div>
+
+                <div class="back-btn">
+                    <a th:href="@{/}">&larr; Back to all petitions</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</body>
+</html>
