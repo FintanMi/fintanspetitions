@@ -21,13 +21,13 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Running unit tests'
-                sh './mvn test'
+                sh './mvnw test'
             }
         }
         stage('Package') {
             steps {
                 echo 'Packaging the project as war'
-                sh './mvn package'
+                sh './mvnw package -DskipTests'
             }
         }
         stage('Approve Deploy') {
@@ -38,7 +38,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Starting to deploy the app'
-                sh "sudo cp target/${APP_NAME}.war /opt/tomcat/webapps/"
+                sh "sudo cp target/${APP_NAME}*.war /opt/tomcat/webapps/${APP_NAME}.war"
                 echo 'Deployment finished'
             }
         }
