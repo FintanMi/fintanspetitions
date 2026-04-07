@@ -5,7 +5,15 @@ pipeline {
             steps { checkout scm }
         }
         stage('Build') {
-            steps { sh 'mvn clean package' }
+            steps { 
+                sh 'chmod + mvnw'
+                sh './mvnw clean package' 
+            }
+        }
+        stage('Archive Artifacts') {
+            steps {
+                archiveArtifacts artifacts: 'target/*.war', fingerprint: true
+            }
         }
     }
 }
