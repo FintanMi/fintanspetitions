@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a th:href="@{/}" class="logo">Fintan's Petitions</a>
+            <div class="navbar-links">
+                <a th:href="@{/}">Browse</a>
+                <a th:href="@{/search}">Search</a>
+                <a th:href="@{/create}">Create a Petition</a>
+            </div>
+        </div>
+    </nav>
+    <main class="main-container">
+        <div class="petition-grid">
+            <h2>Search for a new petition</h2>
+        </div>
+    </main>
+</body>
+</html>

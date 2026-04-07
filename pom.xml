@@ -13,7 +13,8 @@
     <groupId>fintanspetitions</groupId>
     <artifactId>ct5209</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging> <properties>
+    <packaging>war</packaging> 
+    <properties>
         <java.version>17</java.version>
     </properties>
 
