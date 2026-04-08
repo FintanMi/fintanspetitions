@@ -21,6 +21,40 @@
         <div class="petition-grid">
             <h2>Create a new petition</h2>
             <p>Fill out the details of your petition and publish it to the community.</p>
+
+            <form th:action="@{/create}" th:object="${petition}" method="post">
+                <div class="form-group">
+                    <label for="title">Petition Title</label>
+                    <input id="title" type="text" th:field="*{title}" placeholder="Petition Title" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select id="category" th:field="*{category}" required>
+                        <option value="">Select a Category</option>
+                        <option value="Environment">Environment</option>
+                        <option value="Sports">Sports</option>
+                        <option value="Education">Education</option>
+                        <option value="Health">Health</option>
+                        <option value="Social">Social</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="author">Your Name</label>
+                    <input id="author" type="text" th:field="*{author}" placeholder="Your Name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" th:field="*{description}" rows="6" placeholder="Describe your petition" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit">Create Petition</button>
+                    <a th:href="@{/}">Cancel</a>
+                </div>
+            </form>
         </div>
     </main>
 </body>
