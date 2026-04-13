@@ -24,10 +24,10 @@
                 <input type="text" id="searchInput" placeholder="Search here for a petition" autocomplete="off">
             </div>
             <div class="petition-grid">
-                <div class="card petition-card">
+                <div class="card petition-card" th:each="petition: ${results}">
                     <span class="category" th:text="${petition?.category}">Category</span>
                     <h3 class="title">
-                        <a th:href="@{/view/{id}(id=${petition.id})}" th:text="${petition.title}">Petition Title</a>
+                        <a th:href="@{/petition/{id}(id=${petition.id})}" th:text="${petition.title}">Petition Title</a>
                     </h3>
                     <p class="author">By <span th:text="${petition.author}">Author</span></p>
                     <p><strong th:text="${petition.signatureCount}">0</strong> signatures</p>
