@@ -11,7 +11,6 @@
         <div class="container">
             <a th:href="@{/}" class="logo">Fintan's Petitions</a>
             <div class="navbar-links">
-                <a th:href="@{/}">Browse</a>
                 <a th:href="@{/search}">Search</a>
                 <a th:href="@{/create}">Create a Petition</a>
             </div>
@@ -19,21 +18,22 @@
     </nav>
     <main class="main-container">
         <div class="petition-grid">
-            <h2>Search for a new petition</h2>
-            <div class="search-input">
-                <input type="text" id="searchInput" placeholder="Search here for a petition" autocomplete="off">
+            <h2 class="search-container">Search for a new petition</h2>
+        
+            <div class="search-input-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search here for a petition"
+                    autocomplete="off">
             </div>
-            <div class="petition-grid">
-                <div class="card petition-card" th:each="petition: ${results}">
-                    <span class="category" th:text="${petition?.category}">Category</span>
-                    <h3 class="title">
-                        <a th:href="@{/petition/{id}(id=${petition.id})}" th:text="${petition.title}">Petition Title</a>
-                    </h3>
-                    <p class="author">By <span th:text="${petition.author}">Author</span></p>
-                    <p><strong th:text="${petition.signatureCount}">0</strong> signatures</p>
-                </div>
+            <div class="card petition-card" th:each="petition: ${results}">
+                <span class="category" th:text="${petition?.category}">Category</span>
+                <h3 class="title">
+                    <a th:href="@{/petition/{id}(id=${petition.id})}" th:text="${petition.title}">Petition Title</a>
+                </h3>
+                <p class="author">By <span th:text="${petition.author}">Author</span></p>
+                <p><strong th:text="${petition.signatureCount}">0</strong> signatures</p>
             </div>
-            <div id="noResults">
+        
+            <div id="noResults" class="no-results">
                 <p>No petitions results were found.</p>
             </div>
         </div>
@@ -54,15 +54,21 @@
                 const category = card.querySelector('.category').textContent.toLowerCase();
 
                 if (title.includes(query) || author.includes(query) || category.includes(query)) {
-                    card.style.display = 'flex';
+                    card.style.display = '';
                     visibleCount++;
                 } else {
                     card.style.display = 'none';
                 }
             });
 
-            noResult.style.display = visibleCount === 0 ? 'block' : 'none';
+            if (query.length > 0 && visibleCount === 0) {
+                noResult.style.display = 'block';
+            } else {
+                noResult.style.display = 'none';
+            };
         }
+
+        searchInput.addEventListener("input", filter);
     </script>
 </body>
 </html>
