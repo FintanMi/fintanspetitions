@@ -20,6 +20,22 @@
     <main class="main-container">
         <div class="petition-grid">
             <h2>Search for a new petition</h2>
+            <div class="search-input">
+                <input type="text" id="searchInput" placeholder="Search here for a petition" autocomplete="off">
+            </div>
+            <div class="petition-grid">
+                <div class="petition-card">
+                    <span th:text="${petition.category}">Category</span>
+                    <h3>
+                        <a th:href="@{/view/{id}(id=${petition.id})}" th:text="${petition.title}">Petition Title</a>
+                    </h3>
+                    <p>By <span th:text="${petition.author}">Author</span></p>
+                    <p><strong th:text="${petition.signatureCount}">0</strong> signatures</p>
+                </div>
+            </div>
+            <div class="no-results">
+                <p>No petitions results were found.</p>
+            </div>
         </div>
     </main>
 </body>

@@ -154,3 +154,49 @@ h1 {
     color: #666;
     text-decoration: none;
 }
+
+form {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 1.5rem 2rem;
+    align-items: start;
+}
+
+.form-group {
+    display: contents;
+}
+
+.form-group label {
+    grid-column: 1;
+    font-weight: bold;
+}
+
+.form-group button {
+    background-image: linear-gradient(120deg, #007bff, #333);
+    color: #ddd;
+    font-weight: 400;
+    border: 1px solid #333;
+    border-radius: 0.65rem;
+    padding: 0.5rem 1rem;
+}
+
+.form-group button:hover {
+    cursor: pointer;
+}
+
+.form-group a {
+    display: flex;
+    justify-content: center;
+    background: #B22222;
+    color: #ddd;
+    border-radius: 0.65rem;
+    padding: 0.35rem 0.75rem;
+    text-decoration: none;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    grid-column: 2;
+    width: 100%;
+}

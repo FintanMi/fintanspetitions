@@ -25,7 +25,7 @@
             <form th:action="@{/create}" th:object="${petition}" method="post">
                 <div class="form-group">
                     <label for="title">Petition Title</label>
-                    <input id="title" type="text" th:field="*{title}" placeholder="Petition Title" required>
+                    <input id="title" type="text" th:field="*{title}" required>
                 </div>
 
                 <div class="form-group">
@@ -42,12 +42,12 @@
 
                 <div class="form-group">
                     <label for="author">Your Name</label>
-                    <input id="author" type="text" th:field="*{author}" placeholder="Your Name" required>
+                    <input id="author" type="text" th:field="*{author}" required>
                 </div>
 
                 <div class="form-group">
                     <label for="description">Description</label>
-                    <textarea id="description" th:field="*{description}" rows="6" placeholder="Describe your petition" required></textarea>
+                    <textarea id="description" th:field="*{description}" rows="6" required></textarea>
                 </div>
 
                 <div class="form-group">
